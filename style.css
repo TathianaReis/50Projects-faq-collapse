@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  text-align: center;
+}
+
+h3 {
+  margin: 0;
+  grid-area: title;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin-inline: auto;
+  margin-top: 50px;
+}
+
+.faq {
+  background-color: transparent;
+  position: relative;
+  border: 1px solid #9fa4a8;
+  padding: 30px;
+  margin-top: 20px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: 'title button';
+  overflow: hidden;
+}
+
+.fa-times {
+  display: none;
+}
+
+.faq.active {
+  background-color: #fff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 'title button' 'text text';
+}
+
+.faq.active .faq-toggle {
+  background-color: #9fa4a8;
+  color: #fff;
+}
+
+.faq.active .faq-text {
+  display: block;
+}
+
+.faq.active .fa-times {
+  display: block;
+}
+
+.faq.active .fa-chevron-down {
+  display: none;
+}
+
+.faq.active::before,
+.faq.active::after {
+  content: '\f075'; /* code from buble comment coming from font awesome*/
+  color: #2ecc71;
+  font-family: 'Font Awesome 5 Free';
+  font-size: 7rem;
+  position: absolute;
+  opacity: 0.2;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+}
+
+.faq.active::before {
+  color: #3498db;
+  top: -10px;
+  left: -30px;
+  transform: rotateX(180deg);
+}
+
+.faq-toggle {
+  grid-area: button;
+  width: 30px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  border: none;
+  font-size: 1rem;
+  justify-self: end;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Additional CSS for initial state */
+.faq-text {
+  display: none;
+}
+
+.fa-times {
+  display: none;
+}
